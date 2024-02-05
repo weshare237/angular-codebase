@@ -1,0 +1,7 @@
+<p>{{ childMessage }}</p>
+<button (click)="sendMessage()">Send Message</button>
+<ng-content [answer]></ng-content>
+<ng-content [question]></ng-content>
+<button (click)="toggleText()">Toggle Me</button>
+{{ showText }} <br />
+<br />

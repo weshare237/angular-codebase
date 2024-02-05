@@ -1,0 +1,52 @@
+<div class="container">
+  <form [formGroup]="productForm" (ngSubmit)="handleSubmit()">
+    <label for="title">Title</label>
+    <input
+      type="text"
+      id="title"
+      formControlName="title"
+      placeholder="Product title.."
+    />
+
+    <div *ngIf="title.invalid && (title.dirty || title.touched)">
+      <div *ngIf="title.errors?.required">Title is required</div>
+      <div *ngIf="title.errors?.minlength">
+        Title must contain at least 4 characters
+      </div>
+    </div>
+
+    <label for="price">Price</label>
+    <input
+      type="number"
+      id="price"
+      formControlName="price"
+      placeholder="Product price.."
+    />
+
+    <label for="description">Description</label>
+    <textarea
+      id="description"
+      formControlName="description"
+      placeholder="Write something.."
+      style="height: 200px"
+    ></textarea>
+
+    <label for="imageUrl">Image URL</label>
+    <input
+      type="text"
+      id="imageUrl"
+      formControlName="imageUrl"
+      placeholder="Product image url.."
+    />
+
+    <label for="category">Category</label>
+    <input
+      type="text"
+      id="category"
+      formControlName="category"
+      placeholder="Product category.."
+    />
+
+    <button [disabled]="!productForm.valid" type="submit">Submit</button>
+  </form>
+</div>
